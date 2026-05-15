@@ -22,7 +22,7 @@ async def init_db():
          """)
         await db.execute("""
             CREATE TABLE IF NOT EXISTS activities(
-                id INTEGER PRIMARY AUTOINCREMENT,
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
                 student_id TEXT NOT NULL,
                 student_name TEXT NOT NULL,
                 activity TEXT NOT NULL,
