@@ -15,7 +15,7 @@ export default function Activities() {
 
   const queryClient = useQueryClient();
 
-  // ── Single query — won't re-fire unless page/search/dateFilter actually change ──
+  
   const { data, isLoading } = useQuery({
     queryKey: ["activities", page, search, dateFilter],
     queryFn: async () => {
@@ -25,8 +25,8 @@ export default function Activities() {
       const res = await api.get("/activities", { params });
       return res.data;
     },
-    staleTime: 30_000, // treat data as fresh for 30s — won't refetch on re-focus
-    keepPreviousData: true, // keep old rows visible while next page loads
+    staleTime: 30_000,
+    keepPreviousData: true, 
   });
 
   const activities = data?.data ?? [];
